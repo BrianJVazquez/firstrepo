@@ -1,5 +1,7 @@
 package com.example.test;
 
+//works with the github repositories
+
 public class Galaxy {
 	
 	String galaxyName;
