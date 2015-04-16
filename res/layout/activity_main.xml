@@ -1,0 +1,117 @@
+<android.support.v4.widget.SlidingPaneLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+	 xmlns:tools="http://schemas.android.com/tools"
+	 tools:context="absolute.beginners.hellouniverse.MainActivity"
+	 android:layout_height="match_parent"
+	 android:layout_width="match_parent"
+	 android:id="@+id/spLayout"
+	 android:background="@drawable/ninepatchasset">
+	  
+      <LinearLayout android:orientation="vertical" android:layout_weight="0.25"
+	    android:layout_width="110dip" android:layout_height="match_parent">
+	    
+	    <ImageButton android:id="@+id/galaxyOne" android:src="@drawable/ibstates1" 
+	         android:layout_width="wrap_content" android:layout_height="wrap_content"
+	         android:contentDescription="@string/galaxyone" android:background="#00000000"/>
+	    <ImageButton android:id="@+id/galaxyTwo" android:src="@drawable/ibstates2" 
+	         android:layout_width="wrap_content" android:layout_height="wrap_content"
+	         android:contentDescription="@string/galaxytwo" android:background="#00000000"/>
+	    <ImageButton android:id="@+id/galaxyThree" android:src="@drawable/ibstates3" 
+	         android:layout_width="wrap_content" android:layout_height="wrap_content"
+	         android:contentDescription="@string/galaxythree" android:background="#00000000"/>
+	    
+	</LinearLayout>
+	
+      <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+          android:background="@drawable/galaxyinfoscreen">
+	 
+		<LinearLayout
+		    android:id="@+id/llh"
+		    android:layout_width="match_parent" 
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:background="#00000000"
+		    >
+		
+		     <LinearLayout
+		       android:orientation="vertical" 
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:layout_margin="12dip"
+		       android:background="#00000000"> 
+		       
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/hello_world" android:textColor="#FFFFFF" 
+			      android:layout_marginStart="48dip" android:layout_marginLeft="28dip"
+			      android:textStyle="bold"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_name" android:textColor="#FFFFFF"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_solar" android:textColor="#FFFFFF" />
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_habit"  android:textColor="#FFFFFF"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_colony"  android:textColor="#FFFFFF"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_pop"  android:textColor="#FFFFFF"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_fleet"  android:textColor="#FFFFFF"/>
+			    <TextView
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/galaxy_ships"  android:textColor="#FFFFFF"/>
+			    
+		   </LinearLayout>
+		   
+		    <LinearLayout
+		       android:orientation="vertical" 
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:background="#00000000"
+		       android:layout_marginTop="33dip">
+		    
+		       	<TextView android:id="@+id/name"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/name_data" android:textColor="#FFFFFF"/>
+		       	
+			    <TextView android:id="@+id/solar"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/solar_data" android:textColor="#FFFFFF" />
+			    
+			    <TextView android:id="@+id/habit"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/habit_data"  android:textColor="#FFFFFF"/>
+			    
+			    <TextView android:id="@+id/colony"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/colony_data"  android:textColor="#FFFFFF"/>
+			    
+			    <TextView android:id="@+id/pop"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/pop_data"  android:textColor="#FFFFFF"/>
+			    
+			    <TextView android:id="@+id/fleet"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/fleet_data"  android:textColor="#FFFFFF"/>
+			    
+			    <TextView android:id="@+id/ships"
+			      android:layout_width="wrap_content" android:layout_height="wrap_content"
+			      android:text="@string/ships_data"  android:textColor="#FFFFFF"/>
+			    
+		     </LinearLayout>
+		</LinearLayout>
+		
+	 <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+	     android:contentDescription="@string/galaxyone" android:src="@drawable/anim_milkyway"
+	     android:adjustViewBounds="true" android:padding="45dip"
+	     android:background="@drawable/imageviewwhitering" android:layout_below="@+id/llh" 
+	     android:layout_marginLeft="12dip" android:layout_marginStart="12dip"/>
+	</RelativeLayout>
+	
+</android.support.v4.widget.SlidingPaneLayout>

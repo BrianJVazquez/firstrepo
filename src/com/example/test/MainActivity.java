@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+//This class is pushed through test repository
+
 public class MainActivity extends ActionBarActivity {
 	
 	static final int INFO_REQUEST = 0;
