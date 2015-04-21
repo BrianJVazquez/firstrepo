@@ -5,9 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="22" />
- 
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -22,8 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.test.EditGalaxy" android:label="@string/edit_galaxy">
-            
+        <activity
+            android:name=".EditGalaxy"
+            android:label="@string/edit_galaxy" >
+        </activity>
+        <activity
+            android:name=".PlayVideo"
+            android:label="@string/play_video" >
         </activity>
     </application>
 

@@ -1,20 +1,29 @@
 package com.example.test;
 
 import com.example.test.Galaxy;
-
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-//This class is pushed through test repository
+//This class is pushed through test repository 
+//main activity for galaxy app
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnClickListener{
 	
 	static final int INFO_REQUEST = 0;
 	static Galaxy milkyWay = new Galaxy("Milky Way", 511, 97);
+	ImageView animImageView;
+	Animation spaceShipAnim, lightShipAnim;
+	ImageButton imageButtonOne, imageButtonTwo, imageButtonThree;
 	
 	TextView nameData, solarData, habitData, colonyData, popData, fleetData, shipsData;
 	
@@ -26,6 +35,10 @@ public class MainActivity extends ActionBarActivity {
 		createDefaultGalaxy();
 		createUiTextViews();
 		transferDataValues();
+		
+		spaceShipAnim = AnimationUtils.loadAnimation(this, R.anim.anim_andromeda);
+		lightShipAnim = AnimationUtils.loadAnimation(this, R.anim.anim_lightshipset);
+		
 	}
 
 	private void createDefaultGalaxy(){
@@ -46,6 +59,16 @@ public class MainActivity extends ActionBarActivity {
 		fleetData = (TextView)findViewById(R.id.fleet);
 		shipsData = (TextView)findViewById(R.id.ships);
 		
+		//ImageView object
+		animImageView =(ImageView)findViewById(R.id.animImageView);
+		
+		//ImageButtons
+		imageButtonOne = (ImageButton)findViewById(R.id.galaxyOne);
+		imageButtonTwo = (ImageButton)findViewById(R.id.galaxyTwo);
+		imageButtonThree = (ImageButton)findViewById(R.id.galaxyThree);
+		imageButtonOne.setOnClickListener(this);
+		imageButtonTwo.setOnClickListener(this);
+		imageButtonThree.setOnClickListener(this);
 	}
 	
 	private void transferDataValues() {
@@ -58,6 +81,7 @@ public class MainActivity extends ActionBarActivity {
 		fleetData.setText(String.valueOf(milkyWay.getGalaxyFleets()));
 		shipsData.setText(String.valueOf(milkyWay.getGalaxyStarships()));
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -109,6 +133,33 @@ public class MainActivity extends ActionBarActivity {
 			Intent editIntent = new Intent(this,EditGalaxy.class);
 			this.startActivityForResult(editIntent, INFO_REQUEST);
 		}
+		else if(id == R.id.play_video){
+			Intent editIntent = new Intent(this, PlayVideo.class);
+			this.startActivity(editIntent);
+		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		int id = v.getId();
+		if(id == R.id.galaxyOne){
+			animImageView.setBackgroundResource(R.drawable.imageviewwhitering);
+			animImageView.setImageResource(R.drawable.anim_milkyway);
+			animImageView.setAnimation(null);
+		}
+		else if(id == R.id.galaxyTwo){
+			animImageView.setImageResource(R.drawable.friendship);
+			animImageView.setBackground(null);
+			animImageView.startAnimation(spaceShipAnim);
+		}
+		else if(id == R.id.galaxyThree){
+			animImageView.setImageResource(R.drawable.anim_lightship);
+			animImageView.setBackground(null);
+			animImageView.startAnimation(lightShipAnim);
+		}
+		
+	}
+	
 }

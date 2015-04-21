@@ -6,13 +6,18 @@
     <item 
         android:id="@+id/edit_galaxy"
         android:orderInCategory="100"
-        app:showAsAction="never"
+        android:showAsAction="never"
         android:title="@string/edit_galaxy"/>
+    
+    <item android:id="@+id/play_video"
+        android:title="@string/play_video"
+        android:orderInCategory="200"
+        android:showAsAction="never"/>
     
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="300"
         android:title="@string/action_settings"
-        app:showAsAction="never"/>
-    
+        android:showAsAction="never"/>
+
 </menu>
