@@ -1,9 +1,18 @@
 package com.example.test;
 
 import com.example.test.Galaxy;
+
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.SparseIntArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,9 +33,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 	ImageView animImageView;
 	Animation spaceShipAnim, lightShipAnim;
 	ImageButton imageButtonOne, imageButtonTwo, imageButtonThree;
+	SoundPool buttonSamples;
+	AudioAttributes attribute;
+	SparseIntArray buttonSampleArray;
 	
 	TextView nameData, solarData, habitData, colonyData, popData, fleetData, shipsData;
 	
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,6 +53,28 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 		spaceShipAnim = AnimationUtils.loadAnimation(this, R.anim.anim_andromeda);
 		lightShipAnim = AnimationUtils.loadAnimation(this, R.anim.anim_lightshipset);
 		
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+			//setting audio attributes ready for play
+			attribute = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(
+					AudioAttributes.CONTENT_TYPE_MUSIC).build();
+			buttonSamples = new SoundPool.Builder().setAudioAttributes(attribute).setMaxStreams(3).build();
+		}
+		else{
+			buttonSamples = new SoundPool(3, AudioManager.STREAM_MUSIC,100);
+		}
+		
+		buttonSampleArray = new SparseIntArray(3);
+		buttonSampleArray.append(1, buttonSamples.load(this, R.raw.buttonaudio, 1));
+		buttonSampleArray.append(2, buttonSamples.load(this, R.raw.buttonaudio2, 1));
+		buttonSampleArray.append(3, buttonSamples.load(this, R.raw.buttonaudio3, 1));
+	}
+	
+	public void triggerSample(int sound, float pitch){
+		AudioManager audioControl = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+		float currentSoundVolume = audioControl.getStreamVolume(AudioManager.STREAM_MUSIC);
+		float maximumSoundVolume = audioControl.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+		float volumeSet = currentSoundVolume / maximumSoundVolume;
+		buttonSamples.play(buttonSampleArray.get(sound), volumeSet, volumeSet, 0, 0, pitch);
 	}
 
 	private void createDefaultGalaxy(){
@@ -94,6 +130,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 		 super.onActivityResult(requestCode, resultCode, data);
 		 if (requestCode == INFO_REQUEST) {
 			 if(resultCode == RESULT_OK){
+				 
 				 String colony = data.getStringExtra("colonies");
 				 String pop = data.getStringExtra("population");
 				 String fleet = data.getStringExtra("fleet");
@@ -115,7 +152,6 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 					 milkyWay.setGalaxyFleets(Integer.parseInt(fleet));
 					 fleetData.setText(fleet);
 				 }
-				 
 			 }
          }
 	 }
@@ -148,18 +184,20 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 			animImageView.setBackgroundResource(R.drawable.imageviewwhitering);
 			animImageView.setImageResource(R.drawable.anim_milkyway);
 			animImageView.setAnimation(null);
+			triggerSample(1,1.0f);
 		}
 		else if(id == R.id.galaxyTwo){
 			animImageView.setImageResource(R.drawable.friendship);
 			animImageView.setBackground(null);
 			animImageView.startAnimation(spaceShipAnim);
+			triggerSample(2,1.0f);
 		}
 		else if(id == R.id.galaxyThree){
 			animImageView.setImageResource(R.drawable.anim_lightship);
 			animImageView.setBackground(null);
 			animImageView.startAnimation(lightShipAnim);
+			triggerSample(3,1.0f);
 		}
-		
 	}
 	
 }
