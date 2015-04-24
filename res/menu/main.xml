@@ -14,10 +14,16 @@
         android:orderInCategory="200"
         android:showAsAction="never"/>
     
+     <item
+       android:id="@+id/contact_galaxy"
+       android:orderInCategory="300"
+       android:title="@string/contact_galaxy"
+       android:showAsAction="never"/>
+    
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="300"
+        android:orderInCategory="400"
         android:title="@string/action_settings"
         android:showAsAction="never"/>
-
+    
 </menu>

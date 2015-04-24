@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 	Animation spaceShipAnim, lightShipAnim;
 	ImageButton imageButtonOne, imageButtonTwo, imageButtonThree;
 	SoundPool buttonSamples;
-	AudioAttributes attribute;
+	//AudioAttributes attribute;
 	SparseIntArray buttonSampleArray;
 	
 	TextView nameData, solarData, habitData, colonyData, popData, fleetData, shipsData;
@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 		
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
 			//setting audio attributes ready for play
-			attribute = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(
+			AudioAttributes attribute = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(
 					AudioAttributes.CONTENT_TYPE_MUSIC).build();
 			buttonSamples = new SoundPool.Builder().setAudioAttributes(attribute).setMaxStreams(3).build();
 		}
@@ -172,6 +172,10 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
 		else if(id == R.id.play_video){
 			Intent editIntent = new Intent(this, PlayVideo.class);
 			this.startActivity(editIntent);
+		}
+		else if(id == R.id.contact_galaxy){
+			Intent dataIntent = new Intent(this, ContactGalaxy.class);
+			this.startActivity(dataIntent);
 		}
 		return super.onOptionsItemSelected(item);
 	}

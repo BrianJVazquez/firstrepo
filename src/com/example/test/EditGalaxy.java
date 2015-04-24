@@ -1,13 +1,13 @@
 package com.example.test;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class EditGalaxy extends Activity{
+public class EditGalaxy extends ActionBarActivity{
 
 	EditText colonyEdit, popEdit, fleetEdit, shipsEdit;
 	Button colonyButton, popButton, fleetButton, shipsButton;

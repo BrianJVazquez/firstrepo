@@ -29,5 +29,13 @@
     <string name="hint_fleet">Enter number of Fleets</string>
     <string name="hint_ships">Enter number of Starships</string>
     <string name="title_activity_play_video">PlayVideo</string>
-
+    <string name="play_audio" >Turn Audio On</string>
+    <string name="stop_audio">Turn Audio Off</string>
+    <string name="contact_galaxy">Contact Galaxy Ruler</string>
+    
+    <string name="listRulers">List All Galaxy Rulers</string>
+    <string name="addMilkyWay">Add Milky Way Viceroy</string>
+    <string name="addAndromeda">Add Andromeda Viceroy</string>
+    <string name="addSpiral">Add Spiral Galaxy Viceroy</string>
+    <string name="returnHome">Return to Home Galaxy</string>
 </resources>

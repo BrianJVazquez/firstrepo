@@ -8,13 +8,20 @@
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
-     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.READ_CONTACTS" android:maxSdkVersion="22"/>
+     <uses-permission android:name="android.permission.WRITE_CONTACTS" android:maxSdkVersion="22"/>
+     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <service android:name="com.example.test.AmbientService" android:enabled="true"></service>
+        
+         <activity android:name=".ContactGalaxy" android:label="@string/contact_galaxy"></activity>
+        
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -25,13 +32,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditGalaxy"
-            android:label="@string/edit_galaxy" >
+            android:name=".EditGalaxy" android:label="@string/edit_galaxy" >
         </activity>
         <activity
-            android:name=".PlayVideo"
-            android:label="@string/play_video" >
+            android:name=".PlayVideo" android:label="@string/play_video" >
         </activity>
+       
     </application>
 
 </manifest>
