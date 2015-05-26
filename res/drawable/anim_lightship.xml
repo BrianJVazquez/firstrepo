@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:duration="200" android:drawable="@drawable/energyship0"/>
+    <item android:duration="200" android:drawable="@drawable/energyship1"/>
+    <item android:duration="200" android:drawable="@drawable/energyship2"/>
+    <item android:duration="200" android:drawable="@drawable/energyship3"/>
+    <item android:duration="200" android:drawable="@drawable/energyship4"/>
+    <item android:duration="200" android:drawable="@drawable/energyship5"/>
+    <item android:duration="200" android:drawable="@drawable/energyship6"/>
+    <item android:duration="200" android:drawable="@drawable/energyship7"/>
+    <item android:duration="200" android:drawable="@drawable/energyship8"/>
+    <item android:duration="200" android:drawable="@drawable/energyship9"/>
+    <item android:duration="200" android:drawable="@drawable/energyship10"/>
+
+</animation-list>
